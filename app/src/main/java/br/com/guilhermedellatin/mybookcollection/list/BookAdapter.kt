@@ -11,6 +11,7 @@ import android.widget.RatingBar
 import android.widget.TextView
 import br.com.guilhermedellatin.mybookcollection.R
 import br.com.guilhermedellatin.mybookcollection.model.Book
+import kotlinx.android.synthetic.main.item_book.view.*
 
 class BookAdapter(context: Context, books: List<Book>): ArrayAdapter<Book>(context, 0, books) {
 

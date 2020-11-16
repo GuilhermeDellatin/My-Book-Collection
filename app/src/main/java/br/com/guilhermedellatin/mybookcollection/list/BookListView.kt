@@ -9,5 +9,5 @@ interface BookListView {
     fun hideDeleteMode()
     fun showSelectedBooks(books: List<Book>)
     fun updateSelectionCountText(count: Int)
-    fun showMessageHotelsDeleted(count: Int)
+    fun showMessageBooksDeleted(count: Int)
 }

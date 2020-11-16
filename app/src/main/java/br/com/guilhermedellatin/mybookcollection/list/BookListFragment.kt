@@ -1,13 +1,13 @@
 package br.com.guilhermedellatin.mybookcollection.list
 
 import android.os.Bundle
-import android.view.ActionMode
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.view.ActionMode
 import androidx.fragment.app.ListFragment
 import br.com.guilhermedellatin.mybookcollection.R
 import br.com.guilhermedellatin.mybookcollection.model.Book
@@ -101,7 +101,7 @@ class BookListFragment : ListFragment(),
         }
     }
 
-    override fun onActionItemClicked(mode: androidx.appcompat.view.ActionMode?, item: MenuItem?): Boolean {
+    override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
         if (item?.itemId == R.id.action_delete) {
             presenter.deleteSelected { books ->
                 if (activity is OnBookDeletedListener) {
@@ -113,14 +113,14 @@ class BookListFragment : ListFragment(),
         return false
     }
 
-    override fun onCreateActionMode(mode: androidx.appcompat.view.ActionMode?, menu: Menu?): Boolean {
+    override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean {
         activity?.menuInflater?.inflate(R.menu.book_delete_list, menu)
         return true
     }
 
-    override fun onPrepareActionMode(mode: androidx.appcompat.view.ActionMode?, menu: Menu?): Boolean = false
+    override fun onPrepareActionMode(mode: ActionMode?, menu: Menu?): Boolean = false
 
-    override fun onDestroyActionMode(mode: androidx.appcompat.view.ActionMode?) {
+    override fun onDestroyActionMode(mode: ActionMode?) {
         actionMode = null
         presenter.hideDeleteMode()
     }

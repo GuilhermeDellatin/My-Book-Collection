@@ -12,7 +12,7 @@ class BookListPresenter(
     private var selectedItems = mutableListOf<Book>()
     private val deletedItems = mutableListOf<Book>()
 
-    fun searchHotels(term: String) {
+    fun searchBooks(term: String) {
         lastTerm = term
         repository.search(term) { books ->
             view.showBooks(books)
@@ -54,7 +54,7 @@ class BookListPresenter(
     }
 
     fun refresh() {
-        searchHotels(lastTerm)
+        searchBooks(lastTerm)
     }
 
     fun deleteSelected(callback: (List<Book>) -> Unit) {
@@ -64,7 +64,7 @@ class BookListPresenter(
         refresh()
         callback(selectedItems)
         hideDeleteMode()
-        view.showMessageHotelsDeleted(deletedItems.size)
+        view.showMessageBooksDeleted(deletedItems.size)
     }
 
     fun init() {
@@ -82,7 +82,7 @@ class BookListPresenter(
             for (book in deletedItems) {
                 repository.save(book)
             }
-            searchHotels(lastTerm)
+            searchBooks(lastTerm)
         }
     }
 }
