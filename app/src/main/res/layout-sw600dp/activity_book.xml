@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/fragmentList"
-        android:name="br.com.guilhermedellatin.book.list.BookListFragment"
+        android:name="br.com.guilhermedellatin.mybookcollection.list.BookListFragment"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="match_parent"

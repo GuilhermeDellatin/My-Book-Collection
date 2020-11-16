@@ -8,6 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorActionMode">#79cb98</color>
+
     <color name="backColor">#88C5CC</color>
     <color name="backDarkColor">#74AAB1</color>
     <color name="grayBorder">#DBDBDB</color>
