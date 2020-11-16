@@ -6,6 +6,7 @@ import br.com.guilhermedellatin.mybookcollection.form.BookFormPresenter
 import br.com.guilhermedellatin.mybookcollection.form.BookFormView
 import br.com.guilhermedellatin.mybookcollection.list.BookListPresenter
 import br.com.guilhermedellatin.mybookcollection.list.BookListView
+import br.com.guilhermedellatin.mybookcollection.repository.BookRepository
 import br.com.guilhermedellatin.mybookcollection.repository.sqlite.ProviderRepository
 import org.koin.dsl.module.module
 
@@ -13,7 +14,7 @@ val androidModule = module {
     single { this }
 
     single {
-        ProviderRepository(ctx = get())
+        ProviderRepository(ctx = get()) as BookRepository
     }
 
     factory { (view: BookListView) ->
