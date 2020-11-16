@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">My Book Collection</string>
+    <string name="error_book_not_found">Livro não encontrado</string>
+    <string name="action_search">Pesquisar</string>
+    <string name="action_new_book">Novo Livro</string>
+    <string name="action_info">Info</string>
+    <string name="hint_search">Procurar por Livro</string>
+
+    <string name="about_title">Minha coleção de livros</string>
+    <string name="about_message">Desenvolvido por Guilherme Fernandes Dellatin</string>
+    <string name="about_button_site">Site</string>
+
+    <string name="form_label_name">Nome</string>
+    <string name="form_label_gender">Genero</string>
+    <string name="form_label_publishing">Editora</string>
+    <string name="form_label_rating">Classificação</string>
+
+    <string name="error_invalid_book">Livro não preenchido corretamente</string>
+
+    <string name="action_delete">Excluir</string>
+    <plurals name="list_book_selected">
+        <item quantity="one">1 selecionado</item>
+        <item quantity="other">%d selecionados</item>
+    </plurals>
+
+    <string name="message_book_deleted">%d itens excluidos</string>
+    <string name="undo">Desfazer</string>
+
+    <string name="action_share">Compartilhar</string>
+    <string name="share_text">Li o Livro %1$s e o classifiquei em %2$.1f estrelas</string>
+
+    <string name="action_edit">Editar</string>
 </resources>
