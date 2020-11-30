@@ -58,7 +58,7 @@
                 android:id="@+id/edtPublishing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/form_label_gender"
+                android:hint="@string/form_label_publishing"
                 android:imeOptions="actionDone"
                 android:inputType="textCapWords"/>
 

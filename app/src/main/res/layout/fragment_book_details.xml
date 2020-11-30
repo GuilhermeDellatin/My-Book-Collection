@@ -10,12 +10,12 @@
         android:id="@+id/imgView"
         android:layout_width="match_parent"
         android:layout_height="191dp"
+        android:layout_marginTop="92dp"
         android:layout_weight="1"
-        app:layout_constraintBottom_toTopOf="@+id/txtName"
+        android:src="@drawable/book_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/book_icon" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtName"
@@ -25,7 +25,7 @@
         app:layout_constraintBottom_toTopOf="@+id/txtGender"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgView"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="Nome do Livro" />
 

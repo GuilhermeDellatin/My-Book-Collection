@@ -19,7 +19,7 @@ class BookProvider : ContentProvider() {
         val sqlDB = helper.writableDatabase
         val rowsDeleted = when (uriType) {
             TYPE_BOOK_DIR -> sqlDB.delete(TABLE_BOOK, selection, selectionArgs)
-            TYPE_BOOK_ITEM-> {
+            TYPE_BOOK_ITEM -> {
                 val id = uri.lastPathSegment
                 sqlDB.delete(TABLE_BOOK, "$COLUMN_ID = ?", arrayOf(id))
             }

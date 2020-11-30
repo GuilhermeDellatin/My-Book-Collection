@@ -1,5 +1,7 @@
 package br.com.guilhermedellatin.mybookcollection.list
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -103,11 +105,32 @@ class BookListFragment : ListFragment(),
 
     override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
         if (item?.itemId == R.id.action_delete) {
-            presenter.deleteSelected { books ->
+            /*presenter.deleteSelected { books ->
                 if (activity is OnBookDeletedListener) {
                     (activity as OnBookDeletedListener).onBooksDeleted(books)
                 }
-            }
+            }*/
+            val builder: AlertDialog.Builder? = activity?.let {
+                AlertDialog.Builder(it)
+            };
+
+            builder?.setTitle(R.string.warring_title)
+            builder?.setMessage(R.string.delete_message)
+            builder?.setPositiveButton(android.R.string.ok,
+                    DialogInterface.OnClickListener { dialog, id ->
+                        presenter.deleteSelected { hotels ->
+                            if (activity is OnBookDeletedListener) {
+                                (activity as OnBookDeletedListener).onBooksDeleted(hotels)
+                            }
+                        }
+                    })
+            builder?.setNegativeButton(android.R.string.cancel,
+                    DialogInterface.OnClickListener { dialog, id ->
+                        dialog.dismiss()
+                    })
+            val dialog: AlertDialog? = builder?.create()
+            dialog?.show()
+
             return true
         }
         return false

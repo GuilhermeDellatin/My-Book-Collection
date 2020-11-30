@@ -31,7 +31,8 @@ class BookFormFragment : DialogFragment(), BookFormView {
     private val presenter: BookFormPresenter by inject { parametersOf(this) }
 
     private lateinit var imageView: ImageView
-    private lateinit var currentPhotoPath: String
+    //private lateinit var currentPhotoPath: String
+    private var currentPhotoPath: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,9 +52,14 @@ class BookFormFragment : DialogFragment(), BookFormView {
         super.onViewCreated(view, savedInstanceState)
         val bookId = arguments?.getLong(EXTRA_BOOK_ID, 0) ?: 0
         presenter.loadBook(bookId)
+
         edtGender.setOnEditorActionListener { _, i, _ ->
             handleKeyboardEvent(i)
         }
+        edtPublishing.setOnEditorActionListener { _, i, _ ->
+            handleKeyboardEvent(i)
+        }
+
         dialog?.setTitle(R.string.action_new_book)
         dialog?.window?.setSoftInputMode(
             WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE
@@ -63,6 +69,7 @@ class BookFormFragment : DialogFragment(), BookFormView {
     override fun showBook(book: Book) {
         edtName.setText(book.name)
         edtGender.setText(book.gender)
+        edtPublishing.setText(book.publishing)
         rtbRating.rating = book.rating
     }
 
@@ -117,9 +124,10 @@ class BookFormFragment : DialogFragment(), BookFormView {
         book.gender = edtGender.text.toString()
         book.publishing = edtPublishing.text.toString()
         book.rating = rtbRating.rating
-        book.path = currentPhotoPath
+        book.path = currentPhotoPath.toString()
 
         if (presenter.saveBook(book)) {
+        //if (book.path != null && presenter.saveBook(book) || book.path == null && presenter.saveBook(book)) {
             return book
         } else {
             return null
