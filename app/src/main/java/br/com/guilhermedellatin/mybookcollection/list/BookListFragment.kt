@@ -105,11 +105,6 @@ class BookListFragment : ListFragment(),
 
     override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
         if (item?.itemId == R.id.action_delete) {
-            /*presenter.deleteSelected { books ->
-                if (activity is OnBookDeletedListener) {
-                    (activity as OnBookDeletedListener).onBooksDeleted(books)
-                }
-            }*/
             val builder: AlertDialog.Builder? = activity?.let {
                 AlertDialog.Builder(it)
             };
